@@ -42,8 +42,6 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         
         searchType = RECENT_TYPE
         
-        resultVC.tableView.tableHeaderView = nil
-        
         recentTableView.register(UINib(nibName: "SearchRecentCell", bundle: nil), forCellReuseIdentifier: "RecentCell")
         recentTableView.register(UINib(nibName: "SearchDetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
         
@@ -168,6 +166,8 @@ extension SearchViewCtr : UISearchResultsUpdating{
             
             return
         }
+        
+        resultVC.tableView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 44,right: 0)
         
         searchType = RELATED_TYPE
         
