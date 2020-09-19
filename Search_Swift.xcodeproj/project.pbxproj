@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,19 @@
 		181386922515B3BE007767F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181386902515B3BE007767F8 /* Main.storyboard */; };
 		181386942515B3C1007767F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181386932515B3C1007767F8 /* Assets.xcassets */; };
 		181386972515B3C1007767F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181386952515B3C1007767F8 /* LaunchScreen.storyboard */; };
+		181386A02515B9FD007767F8 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 1813869F2515B9FD007767F8 /* Cosmos */; };
+		181386A52515BA38007767F8 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386A42515BA38007767F8 /* SearchAPI.swift */; };
+		181386A72515BA5B007767F8 /* SearchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386A62515BA5B007767F8 /* SearchInfo.swift */; };
+		181386A92515BA83007767F8 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386A82515BA83007767F8 /* APIResponse.swift */; };
+		181386AB2515BAA3007767F8 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386AA2515BAA3007767F8 /* UserDefaultManager.swift */; };
+		181386AF2515BB3F007767F8 /* SearchViewCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386AE2515BB3F007767F8 /* SearchViewCtr.swift */; };
+		181386B32515BC32007767F8 /* SearchDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386B12515BC32007767F8 /* SearchDetailCell.swift */; };
+		181386B42515BC32007767F8 /* SearchDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386B22515BC32007767F8 /* SearchDetailCell.xib */; };
+		181386B72515BC4F007767F8 /* SearchRelatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386B52515BC4F007767F8 /* SearchRelatedCell.swift */; };
+		181386B82515BC4F007767F8 /* SearchRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386B62515BC4F007767F8 /* SearchRelatedCell.xib */; };
+		181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BA2515CC20007767F8 /* SearchRecentCell.swift */; };
+		181386BD2515CC20007767F8 /* SearchRecentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386BB2515CC20007767F8 /* SearchRecentCell.xib */; };
+		181386BF2515CD9B007767F8 /* RecentTermInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BE2515CD9B007767F8 /* RecentTermInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +37,18 @@
 		181386932515B3C1007767F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		181386962515B3C1007767F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		181386982515B3C1007767F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		181386A42515BA38007767F8 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		181386A62515BA5B007767F8 /* SearchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInfo.swift; sourceTree = "<group>"; };
+		181386A82515BA83007767F8 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		181386AA2515BAA3007767F8 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		181386AE2515BB3F007767F8 /* SearchViewCtr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCtr.swift; sourceTree = "<group>"; };
+		181386B12515BC32007767F8 /* SearchDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCell.swift; sourceTree = "<group>"; };
+		181386B22515BC32007767F8 /* SearchDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDetailCell.xib; sourceTree = "<group>"; };
+		181386B52515BC4F007767F8 /* SearchRelatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRelatedCell.swift; sourceTree = "<group>"; };
+		181386B62515BC4F007767F8 /* SearchRelatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRelatedCell.xib; sourceTree = "<group>"; };
+		181386BA2515CC20007767F8 /* SearchRecentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentCell.swift; sourceTree = "<group>"; };
+		181386BB2515CC20007767F8 /* SearchRecentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentCell.xib; sourceTree = "<group>"; };
+		181386BE2515CD9B007767F8 /* RecentTermInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTermInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181386A02515B9FD007767F8 /* Cosmos in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +82,10 @@
 		181386892515B3BE007767F8 /* Search_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				181386AA2515BAA3007767F8 /* UserDefaultManager.swift */,
+				181386A22515BA09007767F8 /* Model */,
+				181386A12515BA00007767F8 /* API */,
+				181386AD2515BB1E007767F8 /* Search */,
 				1813868A2515B3BE007767F8 /* AppDelegate.swift */,
 				1813868C2515B3BE007767F8 /* SceneDelegate.swift */,
 				1813868E2515B3BE007767F8 /* ViewController.swift */,
@@ -65,6 +95,54 @@
 				181386982515B3C1007767F8 /* Info.plist */,
 			);
 			path = Search_Swift;
+			sourceTree = "<group>";
+		};
+		181386A12515BA00007767F8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				181386A42515BA38007767F8 /* SearchAPI.swift */,
+				181386A82515BA83007767F8 /* APIResponse.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		181386A22515BA09007767F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				181386A62515BA5B007767F8 /* SearchInfo.swift */,
+				181386BE2515CD9B007767F8 /* RecentTermInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		181386AD2515BB1E007767F8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				181386B92515BC95007767F8 /* ViewCtr */,
+				181386B02515BC15007767F8 /* cell */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		181386B02515BC15007767F8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				181386B12515BC32007767F8 /* SearchDetailCell.swift */,
+				181386B22515BC32007767F8 /* SearchDetailCell.xib */,
+				181386B52515BC4F007767F8 /* SearchRelatedCell.swift */,
+				181386B62515BC4F007767F8 /* SearchRelatedCell.xib */,
+				181386BA2515CC20007767F8 /* SearchRecentCell.swift */,
+				181386BB2515CC20007767F8 /* SearchRecentCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		181386B92515BC95007767F8 /* ViewCtr */ = {
+			isa = PBXGroup;
+			children = (
+				181386AE2515BB3F007767F8 /* SearchViewCtr.swift */,
+			);
+			path = ViewCtr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +161,9 @@
 			dependencies = (
 			);
 			name = Search_Swift;
+			packageProductDependencies = (
+				1813869F2515B9FD007767F8 /* Cosmos */,
+			);
 			productName = Search_Swift;
 			productReference = 181386872515B3BE007767F8 /* Search_Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 1813867E2515B3BE007767F8;
+			packageReferences = (
+				1813869E2515B9FD007767F8 /* XCRemoteSwiftPackageReference "Cosmos" */,
+			);
 			productRefGroup = 181386882515B3BE007767F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +209,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181386BD2515CC20007767F8 /* SearchRecentCell.xib in Resources */,
+				181386B82515BC4F007767F8 /* SearchRelatedCell.xib in Resources */,
 				181386972515B3C1007767F8 /* LaunchScreen.storyboard in Resources */,
 				181386942515B3C1007767F8 /* Assets.xcassets in Resources */,
+				181386B42515BC32007767F8 /* SearchDetailCell.xib in Resources */,
 				181386922515B3BE007767F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +225,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181386BF2515CD9B007767F8 /* RecentTermInfo.swift in Sources */,
+				181386AF2515BB3F007767F8 /* SearchViewCtr.swift in Sources */,
+				181386AB2515BAA3007767F8 /* UserDefaultManager.swift in Sources */,
 				1813868F2515B3BE007767F8 /* ViewController.swift in Sources */,
+				181386B32515BC32007767F8 /* SearchDetailCell.swift in Sources */,
 				1813868B2515B3BE007767F8 /* AppDelegate.swift in Sources */,
+				181386B72515BC4F007767F8 /* SearchRelatedCell.swift in Sources */,
+				181386A72515BA5B007767F8 /* SearchInfo.swift in Sources */,
+				181386A52515BA38007767F8 /* SearchAPI.swift in Sources */,
+				181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */,
 				1813868D2515B3BE007767F8 /* SceneDelegate.swift in Sources */,
+				181386A92515BA83007767F8 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1813869E2515B9FD007767F8 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1813869F2515B9FD007767F8 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1813869E2515B9FD007767F8 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1813867F2515B3BE007767F8 /* Project object */;
 }
