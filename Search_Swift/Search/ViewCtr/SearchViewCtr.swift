@@ -42,6 +42,8 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         
         searchType = RECENT_TYPE
         
+        resultVC.tableView.tableHeaderView = nil
+        
         recentTableView.register(UINib(nibName: "SearchRecentCell", bundle: nil), forCellReuseIdentifier: "RecentCell")
         recentTableView.register(UINib(nibName: "SearchDetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
         
@@ -66,11 +68,15 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         
         if tableView == recentTableView {
             if searchType == RECENT_TYPE {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecentCell", for: indexPath) as? SearchRecentCell else{
-                       return UITableViewCell()
-                   }
-                   cell.setViewDataObj(info: recentSearchTermList[indexPath.row])
-                   return cell
+//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecentCell", for: indexPath) as? SearchRecentCell else{
+//                    return UITableViewCell()
+//                }
+//                cell.setViewDataObj(info: recentSearchTermList[indexPath.row])
+//                return cell
+                let cell = UITableViewCell()
+                  cell.textLabel?.text = recentSearchTermList[indexPath.row]
+                  cell.textLabel?.textColor = .blue
+                return cell
                 
             }else{
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as? SearchDetailCell else{
@@ -97,18 +103,25 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        if searchType == RELATED_TYPE {
-    //            searchType = DETAIL_TYPE
-    //            resultVC.tableView.reloadData()
-    //
-    //        }else if searchType == RECENT_TYPE{
-    //
-    //        }else{
-    ////            performSegue(withIdentifier: "ResultVC", sender: self)
-    //
-    //        }
-    //    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("tableView --> \(tableView)")
+        if tableView == recentTableView {
+            
+            if searchType == RECENT_TYPE {
+                searchType = DETAIL_TYPE
+                
+                self.recentTableView.reloadData()
+            }
+        }else{ //resultVC
+            if searchType == RELATED_TYPE{
+                searchType = DETAIL_TYPE
+                resultVC.tableView.reloadData()
+            }else{
+                performSegue(withIdentifier: "ResultVC", sender: self)
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -119,6 +132,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
                 return self.searchInfoData.count
             }
         }else{
+            print("self.searchInfoData count -->\(self.searchInfoData.count)")
             return self.searchInfoData.count
         }
     }

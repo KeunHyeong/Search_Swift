@@ -97,19 +97,19 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUR-y6-JDX" customClass="bottomView">
-                        <rect key="frame" x="40" y="109" width="255" height="180"/>
+                        <rect key="frame" x="20" y="109" width="295" height="180"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S7j-Db-yiY">
-                                <rect key="frame" x="0.0" y="0.0" width="255" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="295" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YrS-dh-zmr">
-                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="180"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jde-vo-yz3">
-                                        <rect key="frame" x="88.5" y="0.0" width="78" height="180"/>
+                                        <rect key="frame" x="101.5" y="0.0" width="92" height="180"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-4f-Li2">
-                                        <rect key="frame" x="176.5" y="0.0" width="78.5" height="180"/>
+                                        <rect key="frame" x="203.5" y="0.0" width="91.5" height="180"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -126,10 +126,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="qdL-lO-TPd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FQM-t6-Oix"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="lUR-y6-JDX" secondAttribute="trailing" constant="20" id="KfL-o9-K10"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lUR-y6-JDX" secondAttribute="trailing" id="KfL-o9-K10"/>
                     <constraint firstItem="qdL-lO-TPd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q97-cV-GGB"/>
                     <constraint firstAttribute="trailing" secondItem="qdL-lO-TPd" secondAttribute="trailing" id="lcx-lb-KTt"/>
-                    <constraint firstItem="lUR-y6-JDX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="yGi-f7-yJh"/>
+                    <constraint firstItem="lUR-y6-JDX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="yGi-f7-yJh"/>
                     <constraint firstItem="lUR-y6-JDX" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ykh-D0-2hf"/>
                 </constraints>
             </tableViewCellContentView>

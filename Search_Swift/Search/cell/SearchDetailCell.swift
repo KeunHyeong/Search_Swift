@@ -76,7 +76,7 @@ class SearchDetailCell: UITableViewCell {
     }
     
     static func cellHeight() -> CGFloat {
-        return 320
+        return 300
     }
     
 }

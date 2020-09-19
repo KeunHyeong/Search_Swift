@@ -26,6 +26,7 @@
 		181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BA2515CC20007767F8 /* SearchRecentCell.swift */; };
 		181386BD2515CC20007767F8 /* SearchRecentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386BB2515CC20007767F8 /* SearchRecentCell.xib */; };
 		181386BF2515CD9B007767F8 /* RecentTermInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BE2515CD9B007767F8 /* RecentTermInfo.swift */; };
+		184846762515E5A000946FAA /* SearchDetailVewCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184846752515E5A000946FAA /* SearchDetailVewCtr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		181386BA2515CC20007767F8 /* SearchRecentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentCell.swift; sourceTree = "<group>"; };
 		181386BB2515CC20007767F8 /* SearchRecentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentCell.xib; sourceTree = "<group>"; };
 		181386BE2515CD9B007767F8 /* RecentTermInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTermInfo.swift; sourceTree = "<group>"; };
+		184846752515E5A000946FAA /* SearchDetailVewCtr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailVewCtr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				181386AE2515BB3F007767F8 /* SearchViewCtr.swift */,
+				184846752515E5A000946FAA /* SearchDetailVewCtr.swift */,
 			);
 			path = ViewCtr;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				181386AF2515BB3F007767F8 /* SearchViewCtr.swift in Sources */,
 				181386AB2515BAA3007767F8 /* UserDefaultManager.swift in Sources */,
 				1813868F2515B3BE007767F8 /* ViewController.swift in Sources */,
+				184846762515E5A000946FAA /* SearchDetailVewCtr.swift in Sources */,
 				181386B32515BC32007767F8 /* SearchDetailCell.swift in Sources */,
 				1813868B2515B3BE007767F8 /* AppDelegate.swift in Sources */,
 				181386B72515BC4F007767F8 /* SearchRelatedCell.swift in Sources */,
