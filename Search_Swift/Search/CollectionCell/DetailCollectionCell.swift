@@ -18,12 +18,12 @@ class DetailCollectionCell: UICollectionViewCell {
         
         imgView.layer.cornerRadius = 30
         imgView.layer.masksToBounds = true
-        imgView.layer.borderColor = UIColor.white.cgColor
-        imgView.layer.borderWidth = 1
+        imgView.layer.borderColor = UIColor.lightGray.cgColor
+        imgView.layer.borderWidth = 0.5
     }
     
     static func cellSize() -> CGSize{
-        return CGSize(width: 200, height: 500)
+        return CGSize(width: 200, height: 450)
     }
     
     func setViewDataObj(img:URL) {

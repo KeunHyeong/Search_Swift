@@ -12,7 +12,7 @@ class SearchDetailVewCtr: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let typeList = ["header","collection","description","provider","age"]
+    let typeList = ["header","release","collection","description","provider","size","category","age","copyright"]
     var selectIdx : IndexPath = IndexPath(row: 0, section: 0)
     var cellHeight : CGFloat = 0.0
     
@@ -26,11 +26,46 @@ class SearchDetailVewCtr: UIViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        let backBarButtonItem = UIBarButtonItem(title: "You back button title here", style: .plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem = backBarButtonItem
+//        self.navigationItem.title = "gkjsdjfkskjd"
+        
         tableView.register(UINib(nibName: "SearchResultHeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
         tableView.register(UINib(nibName: "DetailTableCell", bundle: nil), forCellReuseIdentifier: "DetailTableCell")
         tableView.register(UINib(nibName: "DesDropTableCell", bundle: nil), forCellReuseIdentifier: "DesDropTableCell")
+        tableView.register(UINib(nibName: "ReleaseDropCell", bundle: nil), forCellReuseIdentifier: "ReleaseDropCell")
         tableView.register(UINib(nibName: "ProviderCell", bundle: nil), forCellReuseIdentifier: "ProviderCell")
         tableView.register(UINib(nibName: "DetailCommonCell", bundle: nil), forCellReuseIdentifier: "DetailCommonCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavi()
+//        naviImage.isHidden = true
+    }
+    
+    private func setNavi(){
+        let naviImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        naviImage.contentMode = .scaleAspectFit
+        naviImage.layer.masksToBounds = true
+        naviImage.layer.cornerRadius = 9
+        naviImage.layer.borderWidth = 0.5
+        naviImage.layer.borderColor = UIColor.lightGray.cgColor
+        naviImage.load(url: self.info!.artworkUrl60!)
+        self.navigationItem.titleView = naviImage
+    }
+}
+
+extension SearchDetailVewCtr : UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        if translation.y > 40 { //screen -> down
+            self.navigationItem.titleView?.isHidden = true
+        } else { //screen -> up
+            self.navigationItem.titleView?.isHidden = false
+            // swipes from bottom to top of screen -> up
+        }
     }
 }
 
@@ -47,18 +82,8 @@ extension SearchDetailVewCtr : UITableViewDelegate {
             self.present(vc, animated: true, completion: nil)
             
         } else if typeList[indexPath.row] == "description" ||
-           typeList[indexPath.row] == "description" {
-            selectIdx = indexPath
-            tableView.beginUpdates()
-            tableView.reloadRows(at: [selectIdx], with: .none)
-            tableView.endUpdates()
-            
-        } else if typeList[indexPath.row] == "release"{
-            
-        } else if typeList[indexPath.row] == "provider"{
-            
-        } else if typeList[indexPath.row] == "age"{
-            
+                  typeList[indexPath.row] == "release" ||
+                  typeList[indexPath.row] == "age"{
             selectIdx = indexPath
             tableView.beginUpdates()
             tableView.reloadRows(at: [selectIdx], with: .none)
@@ -104,23 +129,32 @@ extension SearchDetailVewCtr : UITableViewDataSource {
             cell.setViewDataObj(info: self.info!)
             return cell
             
-        } else if typeList[indexPath.row] == "age"{
+        } else if typeList[indexPath.row] == "release"{
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReleaseDropCell", for: indexPath) as? ReleaseDropCell else {
+                return UITableViewCell()
+            }
             
+            return cell
+            
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCommonCell", for: indexPath) as?  DetailCommonCell else{
                 return UITableViewCell()
             }
             
             if typeList[indexPath.row] == "age" {
                 cell.setViewDataObj(type:"연령 등급",info: self.info!)
+            }else if typeList[indexPath.row] == "size"{
+                cell.setViewDataObj(type: "크기", info: self.info!)
+            }else if typeList[indexPath.row] == "copyright" {
+                cell.setViewDataObj(type: "저작권", info: self.info!)
+            }else if typeList[indexPath.row] == "category"{
+                cell.setViewDataObj(type: "카테고리", info: self.info!)
             }
-            
-            cell.animate()
+//            cell.animate()
             cellHeight = cell.cellHeight()
             
             return cell
-            
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,9 +171,14 @@ extension SearchDetailVewCtr : UITableViewDataSource {
             
         } else if typeList[indexPath.row] == "provider"{
             return ProviderCell.cellHeight()
-        } else if typeList[indexPath.row] == "age"{
-            
-            return cellHeight
+        } else if typeList[indexPath.row] == "age" ||
+                  typeList[indexPath.row] == "size" ||
+                  typeList[indexPath.row] == "copyright" ||
+                  typeList[indexPath.row] == "category"{
+            if selectIdx == indexPath {
+                return self.cellHeight
+            }
+            return 44
             
         }
         return 0

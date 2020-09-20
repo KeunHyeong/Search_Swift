@@ -28,6 +28,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         searchController = UISearchController(searchResultsController: resultVC)
         
         recentTableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.backgroundColor = UIColor.white
         
         self.definesPresentationContext = true
         searchController.searchResultsUpdater = self
@@ -56,7 +57,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     }
     
     private func loadRecentList(){
-        if recentSearchTermList.isEmpty == false {
+        if !recentSearchTermList.isEmpty {
             recentSearchTermList.removeAll()
         }
         recentSearchTermList = UserDefaultManager.getRecentSearchTermList()
@@ -98,12 +99,23 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("tableView --> \(tableView)")
         if tableView == recentTableView {
-            
             if searchType == RECENT_TYPE {
                 searchType = DETAIL_TYPE
             }
+            
+            if self.searchInfoData.isEmpty {
+                let term = self.recentSearchTermList[indexPath.row]
+                SearchAPI.requestSearch(term) { searchInfos in
+                    DispatchQueue.main.async {
+                        self.searchInfoData = searchInfos
+                        tableView.reloadData()
+                    }
+                }
+            }else{
+                performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
+            }
+            
         }else{ //resultVC
             if searchType == RELATED_TYPE{
                 searchType = DETAIL_TYPE
@@ -122,6 +134,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             if searchType == RECENT_TYPE {
                 return recentSearchTermList.count
             }else{
+                print("self.searchInfo.Data count -->\(self.searchInfoData.count)")
                 return self.searchInfoData.count
             }
         }else{
@@ -158,18 +171,22 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
 }
 
 extension SearchViewCtr : UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        
+    func updateSearchResults(for searchController: UISearchController) {}
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if self.searchInfoData.isEmpty {
+//            self.searchInfoData.removeAll()
+            recentTableView.reloadData()
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let term = searchController.searchBar.text, term.isEmpty == false else{
+        guard let term = searchBar.text, term.isEmpty == false else{
             searchType = RECENT_TYPE
             loadRecentList()
             
             self.searchInfoData.removeAll()
             resultVC.tableView.reloadData()
-            
             return
         }
         
@@ -203,7 +220,7 @@ extension SearchViewCtr : UISearchBarDelegate {
         }
         
         if !recentSearchTermList.contains(searchTerm) {
-            recentSearchTermList.append(searchTerm)
+            recentSearchTermList.insert(searchTerm, at: 0)
             UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
         }
         
@@ -214,6 +231,7 @@ extension SearchViewCtr : UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchType = RECENT_TYPE
         loadRecentList()
+        self.searchInfoData.removeAll()
         recentTableView.reloadData()
     }
 }

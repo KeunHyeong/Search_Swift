@@ -47,7 +47,7 @@ extension UITableViewCell{
     }
     
     func animate() {
-        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: .curveEaseIn, animations: {
             self.contentView.layoutIfNeeded()
         })
     }

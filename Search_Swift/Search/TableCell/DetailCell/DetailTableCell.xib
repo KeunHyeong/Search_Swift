@@ -10,14 +10,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableCell" rowHeight="401" id="KGk-i7-Jjw" customClass="DetailTableCell" customModule="Search_Swift" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="380" height="401"/>
+            <rect key="frame" x="0.0" y="0.0" width="380" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="380" height="401"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L9o-Av-flW">
-                        <rect key="frame" x="0.0" y="0.0" width="380" height="351"/>
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="450"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yWh-Vp-EIh">
                             <size key="itemSize" width="128" height="128"/>
@@ -27,15 +27,15 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nne-Ok-0IU">
-                        <rect key="frame" x="30" y="363.5" width="20" height="18.5"/>
+                        <rect key="frame" x="15" y="467.5" width="15" height="13.5"/>
                         <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="Qve-ZO-YHA"/>
-                            <constraint firstAttribute="width" constant="20" id="URA-RF-lts"/>
+                            <constraint firstAttribute="height" constant="15" id="Qve-ZO-YHA"/>
+                            <constraint firstAttribute="width" constant="15" id="URA-RF-lts"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BC-u4-xnT">
-                        <rect key="frame" x="55" y="366" width="50" height="20"/>
+                        <rect key="frame" x="35" y="465" width="50" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="JNi-ir-A2i"/>
                             <constraint firstAttribute="height" constant="20" id="fqP-vp-M8Q"/>
@@ -49,8 +49,8 @@
                     <constraint firstItem="L9o-Av-flW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5UE-Ct-qlb"/>
                     <constraint firstItem="6BC-u4-xnT" firstAttribute="top" secondItem="L9o-Av-flW" secondAttribute="bottom" constant="15" id="85h-eJ-Feb"/>
                     <constraint firstAttribute="bottom" secondItem="L9o-Av-flW" secondAttribute="bottom" constant="50" id="L0X-Q1-JLF"/>
-                    <constraint firstItem="nne-Ok-0IU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="OOZ-ne-Y1n"/>
-                    <constraint firstItem="L9o-Av-flW" firstAttribute="bottomMargin" secondItem="nne-Ok-0IU" secondAttribute="top" constant="-20" id="YQu-r0-Tqa"/>
+                    <constraint firstItem="nne-Ok-0IU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="OOZ-ne-Y1n"/>
+                    <constraint firstItem="L9o-Av-flW" firstAttribute="bottomMargin" secondItem="nne-Ok-0IU" secondAttribute="top" constant="-25" id="YQu-r0-Tqa"/>
                     <constraint firstAttribute="trailing" secondItem="L9o-Av-flW" secondAttribute="trailing" id="bev-Qt-u9j"/>
                     <constraint firstItem="L9o-Av-flW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hfA-8L-8hn"/>
                     <constraint firstItem="6BC-u4-xnT" firstAttribute="leading" secondItem="nne-Ok-0IU" secondAttribute="trailing" constant="5" id="m1a-dx-Rzt"/>

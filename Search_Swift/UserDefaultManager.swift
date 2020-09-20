@@ -14,7 +14,6 @@ class UserDefaultManager {
     
     init(recentSearchTermList:[String]) {
         self.recentSearchTermList = recentSearchTermList
-        
     }
     
     static func setRecentSearchTermList(recentList:[String]){
@@ -26,7 +25,7 @@ class UserDefaultManager {
         
         
         let defaults = UserDefaults.standard
-        //        defaults.removeObject(forKey: "recentSearchTermList")
+//        resetDefaults()
         guard let array = defaults.array(forKey: "recentSearchTermList") as? [String] else { return [] }
         
         return array

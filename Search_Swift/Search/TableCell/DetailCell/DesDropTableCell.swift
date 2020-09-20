@@ -14,19 +14,20 @@ class DesDropTableCell: UITableViewCell {
     @IBOutlet weak var corpLb: UILabel!
     @IBOutlet weak var moreLb: UILabel!
     var des:String = ""
+    var isLb:Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.selectionStyle = .none
         desLb.numberOfLines = 0
-        moreLb.text = ""
+        moreLb.text = "더 보기"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            moreLb.text = ""
+            moreLb.isHidden = true
         }
     }
     
@@ -40,5 +41,7 @@ class DesDropTableCell: UITableViewCell {
         
         desLb.text = info.description
         corpLb.text = info.corpName
+        
+       
     }
 }

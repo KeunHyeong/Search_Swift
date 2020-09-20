@@ -28,24 +28,24 @@ class SearchDetailCell: UITableViewCell {
         
         appProfileImgView.layer.cornerRadius = 9
         appProfileImgView.layer.masksToBounds = true
-        appProfileImgView.layer.borderColor = UIColor.white.cgColor
-        appProfileImgView.layer.borderWidth = 1
+        appProfileImgView.layer.borderColor = UIColor.lightGray.cgColor
+        appProfileImgView.layer.borderWidth = 0.5
         
-        screenShot_1.layer.cornerRadius = 30
-        screenShot_2.layer.cornerRadius = 30
-        screenShot_3.layer.cornerRadius = 30
+        screenShot_1.layer.cornerRadius = 12
+        screenShot_2.layer.cornerRadius = 12
+        screenShot_3.layer.cornerRadius = 12
         
         screenShot_1.clipsToBounds = true
         screenShot_2.clipsToBounds = true
         screenShot_3.clipsToBounds = true
         
-        screenShot_1.layer.borderColor = UIColor.white.cgColor
-        screenShot_2.layer.borderColor = UIColor.white.cgColor
-        screenShot_3.layer.borderColor = UIColor.white.cgColor
+        screenShot_1.layer.borderColor = UIColor.lightGray.cgColor
+        screenShot_2.layer.borderColor = UIColor.lightGray.cgColor
+        screenShot_3.layer.borderColor = UIColor.lightGray.cgColor
         
-        screenShot_1.layer.borderWidth = 1
-        screenShot_2.layer.borderWidth = 1
-        screenShot_3.layer.borderWidth = 1
+        screenShot_1.layer.borderWidth = 0.5
+        screenShot_2.layer.borderWidth = 0.5
+        screenShot_3.layer.borderWidth = 0.5
         
         openBtn.layer.cornerRadius = 16
 
@@ -54,8 +54,6 @@ class SearchDetailCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -69,17 +67,24 @@ class SearchDetailCell: UITableViewCell {
         
         appProfileImgView.load(url: info.artworkUrl60!)
         
-        screenShot_1.load(url: info.screenshotUrls![0])
-        screenShot_2.load(url: info.screenshotUrls![1])
-        screenShot_3.load(url: info.screenshotUrls![2])
-        
+        if info.screenshotUrls?.count == 1{
+            screenShot_1.load(url: info.screenshotUrls![0])
+        }else if info.screenshotUrls?.count == 2{
+            screenShot_1.load(url: info.screenshotUrls![0])
+            screenShot_1.load(url: info.screenshotUrls![1])
+        }else{
+            screenShot_1.load(url: info.screenshotUrls![0])
+            screenShot_2.load(url: info.screenshotUrls![1])
+            screenShot_3.load(url: info.screenshotUrls![2])
+        }
+
         starRatingView.rating = info.averageUserRating!
         
         starRatingView.text = self.returnUserRating(rating: info.userRatingCount!)
     }
     
     static func cellHeight() -> CGFloat {
-        return 300
+        return 320
     }
 }
 

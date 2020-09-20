@@ -15,13 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pZX-pQ-Oc3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pZX-pQ-Oc3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pZX-pQ-Oc3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NNn-0P-jcv"/>
+                            <constraint firstItem="pZX-pQ-Oc3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SHU-Se-3j2"/>
+                            <constraint firstItem="pZX-pQ-Oc3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="acV-mq-aMV"/>
+                            <constraint firstAttribute="bottom" secondItem="pZX-pQ-Oc3" secondAttribute="bottom" id="ctE-6p-X1l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="d9t-x8-toV"/>

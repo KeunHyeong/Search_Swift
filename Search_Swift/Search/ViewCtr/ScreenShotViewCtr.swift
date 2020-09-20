@@ -43,7 +43,7 @@ class ScreenShotViewCtr: UIViewController,UITableViewDelegate, UINavigationBarDe
 
         view.addSubview(navbar)
 
-        view.frame = CGRect(x: 0, y: height, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - height))
+        view.frame = CGRect(x: 0, y: height, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height))
     }
 }
 

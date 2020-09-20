@@ -30,9 +30,9 @@ class SearchResultHeaderCell: UITableViewCell {
         super.awakeFromNib()
         
         appProfileImgView.layer.masksToBounds = true
-        appProfileImgView.layer.borderWidth = 1
+        appProfileImgView.layer.borderWidth = 0.5
         appProfileImgView.layer.cornerRadius = 15
-        appProfileImgView.layer.borderColor = UIColor.white.cgColor
+        appProfileImgView.layer.borderColor = UIColor.lightGray.cgColor
         
         downloadBtn.layer.masksToBounds = true
         downloadBtn.layer.cornerRadius = 15

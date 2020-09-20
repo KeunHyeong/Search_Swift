@@ -17,6 +17,7 @@ class DetailCommonCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        des = ""
         // Initialization code
     }
 
@@ -26,27 +27,30 @@ class DetailCommonCell: UITableViewCell {
     
     func cellHeight() -> CGFloat{
         let desHeight = des.height(withConstrainedWidth: setStr.frame.width, font: UIFont.systemFont(ofSize: 15))
-        if desHeight > 60{
+        if desHeight > 44{
             return desHeight
         }
-        return 60
+        return 44
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
     func setViewDataObj(type:String,info:SearchInfo){
         if type == "크기" {
-            
             let bytes = info.fileSizeBytes!
             setStr.text = Units(bytes: Int64(bytes)!).getReadableUnit()
+            
+            print("setStr 크기 -->\(setStr.text!)")
         } else if type == "카테고리" {
-            
             setStr.text = info.primaryGenreName!
-            
         } else if type == "언어" {
             
         } else if type == "저작권" {
             setStr.text = "@\(info.corpName!)"
         } else if type == "연령 등급"{
-            let adv: String = info.advisories!.joined(separator: "\n")
+            let adv: String = "\(info.contentAdvisoryRating!)"+"\n"+info.advisories!.joined(separator: "\n")
             setStr.text = adv
         }
         
