@@ -66,16 +66,11 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         
         if tableView == recentTableView {
             if searchType == RECENT_TYPE {
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecentCell", for: indexPath) as? SearchRecentCell else{
-//                    return UITableViewCell()
-//                }
-//                cell.setViewDataObj(info: recentSearchTermList[indexPath.row])
-//                return cell
-                let cell = UITableViewCell()
-                  cell.textLabel?.text = recentSearchTermList[indexPath.row]
-                  cell.textLabel?.textColor = .blue
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecentCell", for: indexPath) as? SearchRecentCell else{
+                    return UITableViewCell()
+                }
+                cell.setViewDataObj(info: recentSearchTermList[indexPath.row])
                 return cell
-                
             }else{
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as? SearchDetailCell else{
                     return UITableViewCell()
@@ -108,16 +103,16 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             
             if searchType == RECENT_TYPE {
                 searchType = DETAIL_TYPE
-                
-                self.recentTableView.reloadData()
             }
         }else{ //resultVC
             if searchType == RELATED_TYPE{
                 searchType = DETAIL_TYPE
-                resultVC.tableView.reloadData()
+                
             }else{
-                performSegue(withIdentifier: "ResultVC", sender: self)
+                performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
+                searchType = DETAIL_TYPE
             }
+            resultVC.tableView.reloadData()
         }
     }
     
@@ -151,12 +146,23 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultVC" {
+            let vc = segue.destination as? SearchDetailVewCtr
+            if let idx = sender as? Int{
+                vc?.info = searchInfoData[idx]
+            }
+        }
+    }
 }
 
 extension SearchViewCtr : UISearchResultsUpdating{
-    
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let term = searchController.searchBar.text, term.isEmpty == false else{
             searchType = RECENT_TYPE
             loadRecentList()
@@ -167,19 +173,16 @@ extension SearchViewCtr : UISearchResultsUpdating{
             return
         }
         
-        resultVC.tableView.contentInset = UIEdgeInsets(top: 44,left: 0,bottom: 44,right: 0)
+        resultVC.tableView.contentInset = UIEdgeInsets(top: 60,left: 0,bottom: 60,right: 0)
         
         searchType = RELATED_TYPE
         
         SearchAPI.requestSearch(term) { searchInfos in
-            self.searchInfoData = searchInfos
+            DispatchQueue.main.async {
+                self.searchInfoData = searchInfos
+                self.resultVC.tableView.reloadData()
+            }
         }
-        
-        self.searchInfoData = self.searchInfoData.filter({ (info:SearchInfo) -> Bool in
-            return info.title!.lowercased().contains(searchController.searchBar.text!.lowercased())
-        })
-        
-        resultVC.tableView.reloadData()
     }
 }
 
@@ -201,13 +204,10 @@ extension SearchViewCtr : UISearchBarDelegate {
         
         if !recentSearchTermList.contains(searchTerm) {
             recentSearchTermList.append(searchTerm)
+            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
         }
         
-        print("recentList--> \(recentSearchTermList)")
-        UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
-        
         searchType = DETAIL_TYPE
-        
         resultVC.tableView.reloadData()
     }
     

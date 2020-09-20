@@ -24,6 +24,8 @@ class SearchDetailCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.selectionStyle = .none
+        
         appProfileImgView.layer.cornerRadius = 9
         appProfileImgView.layer.masksToBounds = true
         appProfileImgView.layer.borderColor = UIColor.white.cgColor
@@ -47,8 +49,7 @@ class SearchDetailCell: UITableViewCell {
         
         openBtn.layer.cornerRadius = 16
 
-        starRatingView.didFinishTouchingCosmos = { rating in }
-        starRatingView.didTouchCosmos = { rating in }
+        starRatingView.settings.updateOnTouch = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,7 +65,7 @@ class SearchDetailCell: UITableViewCell {
     func setViewDataObj(info:SearchInfo) {
         
         appTitleLb.text = info.title
-        //        genreTitleLb.text = info.primaryGenreName
+        subTitleLb.text = info.primaryGenreName
         
         appProfileImgView.load(url: info.artworkUrl60!)
         
@@ -72,26 +73,15 @@ class SearchDetailCell: UITableViewCell {
         screenShot_2.load(url: info.screenshotUrls![1])
         screenShot_3.load(url: info.screenshotUrls![2])
         
-        //        starRatingView.rating = info.averageUserRating!
+        starRatingView.rating = info.averageUserRating!
+        
+        starRatingView.text = self.returnUserRating(rating: info.userRatingCount!)
     }
     
     static func cellHeight() -> CGFloat {
         return 300
     }
-    
 }
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
+
 

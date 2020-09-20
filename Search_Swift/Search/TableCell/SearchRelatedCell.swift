@@ -24,7 +24,7 @@ class SearchRelatedCell: UITableViewCell {
     }
     
     static func cellHeight() -> CGFloat{
-        return 60
+        return 44
     }
     
     func setViewDataObj(info:SearchInfo) {

@@ -19,10 +19,12 @@ class SearchAPI {
         let mediaQuery = URLQueryItem(name: "media", value: "software")
         let entityQuery = URLQueryItem(name: "entity", value: "software")
         let termQuery = URLQueryItem(name: "term", value: term)
+        let countryQuery = URLQueryItem(name: "country", value: "kr")
         
         urlComponents.queryItems?.append(mediaQuery)
         urlComponents.queryItems?.append(entityQuery)
         urlComponents.queryItems?.append(termQuery)
+        urlComponents.queryItems?.append(countryQuery)
         
         let requestURL = urlComponents.url!
         

@@ -34,17 +34,32 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Detail Vew Ctr-->
         <scene sceneID="bmF-aA-qXv">
             <objects>
-                <viewController id="Q5P-bm-EGH" sceneMemberID="viewController">
+                <viewController id="Q5P-bm-EGH" customClass="SearchDetailVewCtr" customModule="Search_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Evx-ah-K8X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j6Q-5O-ZkK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j6Q-5O-ZkK" firstAttribute="top" secondItem="IDt-tJ-8aG" secondAttribute="top" id="MVt-CM-FY0"/>
+                            <constraint firstItem="IDt-tJ-8aG" firstAttribute="bottom" secondItem="j6Q-5O-ZkK" secondAttribute="bottom" id="Uca-Qd-fVm"/>
+                            <constraint firstItem="j6Q-5O-ZkK" firstAttribute="leading" secondItem="IDt-tJ-8aG" secondAttribute="leading" id="jYT-9Z-R2b"/>
+                            <constraint firstItem="IDt-tJ-8aG" firstAttribute="trailing" secondItem="j6Q-5O-ZkK" secondAttribute="trailing" id="jkF-wW-yqq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IDt-tJ-8aG"/>
                     </view>
                     <navigationItem key="navigationItem" id="W7x-Hq-863"/>
+                    <connections>
+                        <outlet property="tableView" destination="j6Q-5O-ZkK" id="bgQ-EW-d6S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PmL-rD-cUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
