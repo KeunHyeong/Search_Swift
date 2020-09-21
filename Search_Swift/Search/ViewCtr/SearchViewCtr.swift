@@ -25,14 +25,34 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViewCtr()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    private func setupViewCtr(){
         searchController = UISearchController(searchResultsController: resultVC)
         
+        if #available(iOS 13.0, *){
+            let window = UIApplication.shared.windows.first{$0.isKeyWindow}
+            let statusBarManager = window?.windowScene?.statusBarManager
+            let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? CGRect.zero)
+            statusBarView.backgroundColor = UIColor.white
+            searchController.view.addSubview(statusBarView)
+        }else{
+            let statusBarFrame = UIApplication.shared.statusBarFrame
+            let statusBarView = UIView(frame: statusBarFrame)
+            statusBarView.backgroundColor = .white
+            searchController.view.addSubview(statusBarView)
+        }
+        
         recentTableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.backgroundColor = UIColor.white
+        
+        searchController.navigationController?.navigationBar.isTranslucent = false
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "취소"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "검색", style: .plain, target: nil, action: nil)
-//        self.navigationController?.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = nil;
         
         self.definesPresentationContext = true
         searchController.searchResultsUpdater = self
@@ -59,15 +79,27 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         loadRecentList()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     private func loadRecentList(){
         if !recentSearchTermList.isEmpty {
             recentSearchTermList.removeAll()
         }
         recentSearchTermList = UserDefaultManager.getRecentSearchTermList()
+    }
+    
+    private func setRecentTerm(term:String){
+        if !recentSearchTermList.contains(term) {
+            recentSearchTermList.insert(term, at: 0)
+            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultVC" {
+            let vc = segue.destination as? SearchDetailVewCtr
+            if let idx = sender as? Int{
+                vc?.info = searchInfoData[idx]
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,7 +161,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
                 
                 let term = self.searchInfoData[indexPath.row].title!
                 setRecentTerm(term: term)
-             
+                
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
                 searchType = DETAIL_TYPE
@@ -169,22 +201,6 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             }
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ResultVC" {
-            let vc = segue.destination as? SearchDetailVewCtr
-            if let idx = sender as? Int{
-                vc?.info = searchInfoData[idx]
-            }
-        }
-    }
-    
-    private func setRecentTerm(term:String){
-        if !recentSearchTermList.contains(term) {
-            recentSearchTermList.insert(term, at: 0)
-            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
-        }
-    }
 }
 
 extension SearchViewCtr : UISearchResultsUpdating{
@@ -192,7 +208,6 @@ extension SearchViewCtr : UISearchResultsUpdating{
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if self.searchInfoData.isEmpty {
-//            self.searchInfoData.removeAll()
             recentTableView.reloadData()
         }
     }

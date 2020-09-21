@@ -16,8 +16,6 @@ class ScreenShotCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        imgView.isUserInteractionEnabled = true
-        
         imgView.layer.cornerRadius = 30
         imgView.layer.masksToBounds = true
         imgView.layer.borderColor = UIColor.lightGray.cgColor

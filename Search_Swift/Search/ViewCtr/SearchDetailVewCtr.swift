@@ -38,35 +38,6 @@ class SearchDetailVewCtr: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavi()
-//        naviImage.isHidden = true
-    }
-    
-    private func setNavi(){
-//        let naviImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-//        naviImage.contentMode = .scaleAspectFill
-//        naviImage.layer.masksToBounds = true
-//        naviImage.layer.cornerRadius = 9
-//        naviImage.layer.borderWidth = 0.5
-////        naviImage.translatesAutoresizingMaskIntoConstraints = false
-//
-//
-//        naviImage.layer.borderColor = UIColor.lightGray.cgColor
-//        naviImage.load(url: self.info!.artworkUrl60!,cache: self.cache)
-//        self.navigationItem.titleView = naviImage
-        
-//        naviTitleLb = [[UILabel alloc] init];
-//          [naviTitleLb setFont:[UIFont AppleSDGothicNeoBold:17]];
-//          [naviTitleLb setThemeTextColor:[UIColor textColor1]];
-//          [naviTitleLb setText:@"카테고리"];
-//          [naviTitleLb setBackgroundColor:[UIColor clearColor]];
-//          [naviTitleLb sizeToFit];
-//
-//          UIBarButtonItem *barItem = [[UIBarButtonItem alloc]initWithCustomView:naviTitleLb];
-//          [self.navigationItem setLeftBarButtonItem:barItem];
-        
-//        self.navigationItem.righ
-//        title = "hello"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,15 +50,6 @@ class SearchDetailVewCtr: UIViewController {
 
 extension SearchDetailVewCtr : UIScrollViewDelegate{
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        let headerCell = UITableViewCell() as? SearchDetailCell
-//        let y = headerCell!.frame.origin.y
-////        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-//        if y > -10 { //screen -> down true
-//            self.navigationItem.titleView?.isHidden = true
-//        } else { //screen -> up false
-//            self.navigationItem.titleView?.isHidden = false
-//            // swipes from bottom to top of screen -> up
-//        }
     }
 }
 
@@ -152,9 +114,8 @@ extension SearchDetailVewCtr : UITableViewDataSource {
             }
             
             cell.setViewDataObj(info: self.info!)
-//            cell.animate()
             functionCellHeight = cell.cellHeight()
-//
+
             return cell
             
         } else {
@@ -188,10 +149,6 @@ extension SearchDetailVewCtr : UITableViewDataSource {
             return 200.0
         }else if typeList[indexPath.row] == "newfunction"{
             return functionCellHeight
-//            if selectIdx == indexPath {
-//                return cellHeight
-//            }
-//            return 150.0
         } else if typeList[indexPath.row] == "provider"{
             return ProviderCell.cellHeight()
         } else {

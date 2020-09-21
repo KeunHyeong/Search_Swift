@@ -13,14 +13,11 @@ class SearchRecentCell: UITableViewCell {
     @IBOutlet weak var recentLb: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     static func cellHeight() -> CGFloat{

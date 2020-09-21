@@ -27,8 +27,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1W-CN-hKq">
-                                <rect key="frame" x="140" y="25" width="190" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <rect key="frame" x="140" y="25" width="190" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,10 +39,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5j-At-zzn">
-                                <rect key="frame" x="140" y="91" width="80" height="30"/>
+                                <rect key="frame" x="140" y="100" width="70" height="30"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Uhr-tj-I0d"/>
+                                    <constraint firstAttribute="width" constant="70" id="Uhr-tj-I0d"/>
                                     <constraint firstAttribute="height" constant="30" id="nwt-gs-vil"/>
                                 </constraints>
                                 <state key="normal" title="받기">
@@ -63,7 +63,7 @@
                             <constraint firstItem="TZ0-Nu-w36" firstAttribute="leading" secondItem="AcB-yQ-iWs" secondAttribute="leading" constant="20" id="8b7-y6-FuA"/>
                             <constraint firstItem="Q1W-CN-hKq" firstAttribute="top" secondItem="AcB-yQ-iWs" secondAttribute="top" constant="25" id="HnR-8T-h6j"/>
                             <constraint firstItem="TZ0-Nu-w36" firstAttribute="top" secondItem="AcB-yQ-iWs" secondAttribute="top" constant="25" id="J9V-Di-BpU"/>
-                            <constraint firstItem="Z5j-At-zzn" firstAttribute="top" secondItem="rbu-2U-49e" secondAttribute="bottom" constant="20" id="JYt-Hm-fi7"/>
+                            <constraint firstItem="Z5j-At-zzn" firstAttribute="top" secondItem="AcB-yQ-iWs" secondAttribute="top" constant="100" id="JYt-Hm-fi7"/>
                             <constraint firstItem="rbu-2U-49e" firstAttribute="leading" secondItem="TZ0-Nu-w36" secondAttribute="trailing" constant="20" id="Jbg-mS-sJh"/>
                             <constraint firstItem="abf-ci-pPd" firstAttribute="top" secondItem="AcB-yQ-iWs" secondAttribute="top" constant="100" id="SHV-Z2-Yye"/>
                             <constraint firstItem="Q1W-CN-hKq" firstAttribute="leading" secondItem="TZ0-Nu-w36" secondAttribute="trailing" constant="20" id="UOY-Zu-B9k"/>
@@ -71,7 +71,7 @@
                             <constraint firstAttribute="height" constant="150" id="s28-dt-MjZ"/>
                             <constraint firstAttribute="trailing" secondItem="abf-ci-pPd" secondAttribute="trailing" constant="20" id="vyq-Q8-olH"/>
                             <constraint firstItem="Z5j-At-zzn" firstAttribute="leading" secondItem="TZ0-Nu-w36" secondAttribute="trailing" constant="20" id="wRL-XY-vDQ"/>
-                            <constraint firstItem="rbu-2U-49e" firstAttribute="top" secondItem="Q1W-CN-hKq" secondAttribute="bottom" id="xAy-RJ-mPC"/>
+                            <constraint firstItem="rbu-2U-49e" firstAttribute="top" secondItem="Q1W-CN-hKq" secondAttribute="bottom" constant="5" id="xAy-RJ-mPC"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-yI-3Y2" customClass="bottomView">
@@ -146,6 +146,16 @@
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-rV-AcP">
+                                <rect key="frame" x="200" y="45" width="100" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9h8-Hk-349"/>
+                                    <constraint firstAttribute="height" constant="20" id="YS6-gu-qso"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -157,8 +167,10 @@
                             <constraint firstItem="Rcb-9y-Gqg" firstAttribute="leading" secondItem="erv-4i-omU" secondAttribute="trailing" id="VKo-cN-jNX"/>
                             <constraint firstItem="bua-qk-UGI" firstAttribute="top" secondItem="Jys-hj-Sbn" secondAttribute="bottom" id="W2j-5s-MJv"/>
                             <constraint firstAttribute="trailing" secondItem="bua-qk-UGI" secondAttribute="trailing" constant="20" id="Xej-wo-TWD"/>
+                            <constraint firstItem="nbP-rV-AcP" firstAttribute="top" secondItem="8HF-yI-3Y2" secondAttribute="top" constant="45" id="bCN-K2-7Xk"/>
                             <constraint firstItem="GJE-rW-7oJ" firstAttribute="top" secondItem="erv-4i-omU" secondAttribute="bottom" id="cXv-gK-pLZ"/>
                             <constraint firstAttribute="trailing" secondItem="Jys-hj-Sbn" secondAttribute="trailing" constant="20" id="o2v-NY-ukr"/>
+                            <constraint firstItem="nbP-rV-AcP" firstAttribute="leading" secondItem="8HF-yI-3Y2" secondAttribute="leading" constant="200" id="v8V-VK-lly"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -180,6 +192,7 @@
                 <outlet property="appSubTitleLb" destination="rbu-2U-49e" id="Qi1-sG-oqm"/>
                 <outlet property="appTitleLb" destination="Q1W-CN-hKq" id="OzA-Iw-jyU"/>
                 <outlet property="downloadBtn" destination="Z5j-At-zzn" id="jRw-79-jXT"/>
+                <outlet property="genreLb" destination="nbP-rV-AcP" id="NGA-Nq-uvI"/>
                 <outlet property="starRatingLb" destination="erv-4i-omU" id="l2V-fb-qhN"/>
                 <outlet property="starRatingView" destination="Rcb-9y-Gqg" id="Rx2-hb-NRb"/>
                 <outlet property="userRatingLb" destination="GJE-rW-7oJ" id="vs9-df-zOF"/>

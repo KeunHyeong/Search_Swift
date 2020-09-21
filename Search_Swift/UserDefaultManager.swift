@@ -31,12 +31,12 @@ class UserDefaultManager {
         return array
     }
     
-    static func resetDefaults() {
-        let defaults = UserDefaults.standard
-        let dictionary = defaults.dictionaryRepresentation()
-        dictionary.keys.forEach { key in
-            defaults.removeObject(forKey: key)
-        }
-    }
+//    static func resetDefaults() {
+//        let defaults = UserDefaults.standard
+//        let dictionary = defaults.dictionaryRepresentation()
+//        dictionary.keys.forEach { key in
+//            defaults.removeObject(forKey: key)
+//        }
+//    }
 
 }

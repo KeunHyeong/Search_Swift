@@ -17,20 +17,19 @@ class SearchResultHeaderCell: UITableViewCell {
     @IBOutlet weak var downloadBtn: UIButton!
     
     @IBOutlet weak var starRatingLb: UILabel!
-    
     @IBOutlet weak var starRatingView: CosmosView!
-    
     @IBOutlet weak var userRatingLb: UILabel!
     
+    @IBOutlet weak var genreLb: UILabel!
     @IBOutlet weak var ageLb: UILabel!
     @IBOutlet weak var ageLb_2: UILabel!
     
     let cache = NSCache<NSString, UIImage>()
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        appTitleLb.numberOfLines = 2
         appProfileImgView.layer.masksToBounds = true
         appProfileImgView.layer.borderWidth = 0.5
         appProfileImgView.layer.cornerRadius = 15
@@ -56,8 +55,6 @@ class SearchResultHeaderCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     static func cellHeight() -> CGFloat{
@@ -68,7 +65,7 @@ class SearchResultHeaderCell: UITableViewCell {
         
         appProfileImgView.load(url: info.artworkUrl100!,cache: self.cache)
         appTitleLb.text = info.title
-        appSubTitleLb.text = info.primaryGenreName
+        appSubTitleLb.text = info.corpName
         
         starRatingView.rating  = info.averageUserRating!
         
@@ -84,6 +81,7 @@ class SearchResultHeaderCell: UITableViewCell {
         
         ageLb.text = info.trackContentRating!
         ageLb_2.text = "연령"
+        genreLb.text = info.genres![0]
     }
 }
 
