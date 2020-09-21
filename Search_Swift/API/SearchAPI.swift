@@ -61,5 +61,4 @@ class SearchAPI {
             return []
         }
     }
-    
 }

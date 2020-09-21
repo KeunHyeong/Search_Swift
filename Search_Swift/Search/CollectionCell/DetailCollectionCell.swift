@@ -11,6 +11,7 @@ import UIKit
 class DetailCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
+    let cache = NSCache<NSString, UIImage>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,7 @@ class DetailCollectionCell: UICollectionViewCell {
         return CGSize(width: 200, height: 450)
     }
     
-    func setViewDataObj(img:URL) {
-        imgView.load(url: img)
+    func setViewDataObj(img:String) {
+        imgView.load(url: img,cache: cache)
     }
 }

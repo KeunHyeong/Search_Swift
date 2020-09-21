@@ -25,8 +25,6 @@
 		181386B82515BC4F007767F8 /* SearchRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386B62515BC4F007767F8 /* SearchRelatedCell.xib */; };
 		181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BA2515CC20007767F8 /* SearchRecentCell.swift */; };
 		181386BD2515CC20007767F8 /* SearchRecentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386BB2515CC20007767F8 /* SearchRecentCell.xib */; };
-		1819850025170F4F0047459B /* ReleaseDropCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181984FE25170F4F0047459B /* ReleaseDropCell.swift */; };
-		1819850125170F4F0047459B /* ReleaseDropCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181984FF25170F4F0047459B /* ReleaseDropCell.xib */; };
 		18198503251715260047459B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18198502251715260047459B /* Extension.swift */; };
 		1838D0C22517216E0075422A /* ProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D0C02517216E0075422A /* ProviderCell.swift */; };
 		1838D0C32517216E0075422A /* ProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838D0C12517216E0075422A /* ProviderCell.xib */; };
@@ -71,8 +69,6 @@
 		181386B62515BC4F007767F8 /* SearchRelatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRelatedCell.xib; sourceTree = "<group>"; };
 		181386BA2515CC20007767F8 /* SearchRecentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentCell.swift; sourceTree = "<group>"; };
 		181386BB2515CC20007767F8 /* SearchRecentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentCell.xib; sourceTree = "<group>"; };
-		181984FE25170F4F0047459B /* ReleaseDropCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDropCell.swift; sourceTree = "<group>"; };
-		181984FF25170F4F0047459B /* ReleaseDropCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseDropCell.xib; sourceTree = "<group>"; };
 		18198502251715260047459B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1838D0C02517216E0075422A /* ProviderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCell.swift; sourceTree = "<group>"; };
 		1838D0C12517216E0075422A /* ProviderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCell.xib; sourceTree = "<group>"; };
@@ -207,8 +203,6 @@
 				1848469C25163EAC00946FAA /* DetailTableCell.xib */,
 				18682F7B2516EF27009E135B /* DesDropTableCell.swift */,
 				18682F7C2516EF27009E135B /* DesDropTableCell.xib */,
-				181984FE25170F4F0047459B /* ReleaseDropCell.swift */,
-				181984FF25170F4F0047459B /* ReleaseDropCell.xib */,
 				1838D0C02517216E0075422A /* ProviderCell.swift */,
 				1838D0C12517216E0075422A /* ProviderCell.xib */,
 				1838D0C6251721A50075422A /* DetailCommonCell.swift */,
@@ -304,7 +298,6 @@
 				184846AA251654B800946FAA /* ScreenShotTableCell.xib in Resources */,
 				181386972515B3C1007767F8 /* LaunchScreen.storyboard in Resources */,
 				181386942515B3C1007767F8 /* Assets.xcassets in Resources */,
-				1819850125170F4F0047459B /* ReleaseDropCell.xib in Resources */,
 				18558B04251795FC00B3BD3D /* NewFunctionCell.xib in Resources */,
 				184846A025164B7900946FAA /* SearchResultHeaderCell.xib in Resources */,
 				181386B42515BC32007767F8 /* SearchDetailCell.xib in Resources */,
@@ -335,7 +328,6 @@
 				181386B72515BC4F007767F8 /* SearchRelatedCell.swift in Sources */,
 				18198503251715260047459B /* Extension.swift in Sources */,
 				181386A72515BA5B007767F8 /* SearchInfo.swift in Sources */,
-				1819850025170F4F0047459B /* ReleaseDropCell.swift in Sources */,
 				1848469D25163EAC00946FAA /* DetailTableCell.swift in Sources */,
 				184846AD251654DA00946FAA /* ScreenShotCollectionCell.swift in Sources */,
 				181386A52515BA38007767F8 /* SearchAPI.swift in Sources */,

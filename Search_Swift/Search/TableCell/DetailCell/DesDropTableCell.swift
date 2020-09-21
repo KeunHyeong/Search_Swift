@@ -18,10 +18,14 @@ class DesDropTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         self.selectionStyle = .none
         desLb.numberOfLines = 0
-        moreLb.text = "더 보기"
+        moreLb.text = ""
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,8 +36,11 @@ class DesDropTableCell: UITableViewCell {
     }
     
     func cellHeight() -> CGFloat{
-        let desHeight = des.height(withConstrainedWidth: desLb.frame.width, font: UIFont.systemFont(ofSize: 15))
-        return desHeight
+        let desHeight = des.height(withConstrainedWidth: desLb.frame.width, font: UIFont.systemFont(ofSize: 14))
+        if desHeight > 200 {
+            return desHeight + 200
+        }
+        return 200
     }
     
     func setViewDataObj(info:SearchInfo) {
@@ -41,7 +48,5 @@ class DesDropTableCell: UITableViewCell {
         
         desLb.text = info.description
         corpLb.text = info.corpName
-        
-       
     }
 }

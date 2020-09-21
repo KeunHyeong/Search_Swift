@@ -16,16 +16,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="392" height="696"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Xm-Dh-W9D">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="696"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Xm-Dh-W9D">
+                        <rect key="frame" x="10" y="60" width="372" height="626"/>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="3Xm-Dh-W9D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7ty-Kb-fUv"/>
-                <constraint firstAttribute="trailing" secondItem="3Xm-Dh-W9D" secondAttribute="trailing" id="GZe-Kc-oxi"/>
-                <constraint firstItem="3Xm-Dh-W9D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hP7-iT-WyW"/>
-                <constraint firstAttribute="bottom" secondItem="3Xm-Dh-W9D" secondAttribute="bottom" id="kSY-Kr-L0b"/>
+                <constraint firstItem="3Xm-Dh-W9D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="60" id="7ty-Kb-fUv"/>
+                <constraint firstAttribute="trailing" secondItem="3Xm-Dh-W9D" secondAttribute="trailing" constant="10" id="GZe-Kc-oxi"/>
+                <constraint firstItem="3Xm-Dh-W9D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="hP7-iT-WyW"/>
+                <constraint firstAttribute="bottom" secondItem="3Xm-Dh-W9D" secondAttribute="bottom" constant="10" id="kSY-Kr-L0b"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="359" height="471"/>

@@ -53,12 +53,11 @@ class DetailCommonCell: UITableViewCell {
             let adv: String = "\(info.contentAdvisoryRating!)"+"\n"+info.advisories!.joined(separator: "\n")
             setStr.text = adv
         }
-        
         commTitle.text = type
     }
 }
 
-public struct Units {
+struct Units {
   
   public let bytes: Int64
   

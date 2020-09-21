@@ -25,6 +25,8 @@ class SearchResultHeaderCell: UITableViewCell {
     @IBOutlet weak var ageLb: UILabel!
     @IBOutlet weak var ageLb_2: UILabel!
     
+    let cache = NSCache<NSString, UIImage>()
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +49,10 @@ class SearchResultHeaderCell: UITableViewCell {
         
         starRatingView.prepareForReuse()
     }
+    
+    override func layoutSubviews() {
+          super.layoutSubviews()
+      }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -60,7 +66,7 @@ class SearchResultHeaderCell: UITableViewCell {
     
     func setViewDataObj(info:SearchInfo) {
         
-        appProfileImgView.load(url: info.artworkUrl100!)
+        appProfileImgView.load(url: info.artworkUrl100!,cache: self.cache)
         appTitleLb.text = info.title
         appSubTitleLb.text = info.primaryGenreName
         

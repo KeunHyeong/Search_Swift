@@ -12,13 +12,13 @@ class SearchInfo: Codable {
     
     let advisories : [String]?
     let isGameCenterEnabled : Bool?
-    let screenshotUrls : [URL]?
-    let ipadScreenshotUrls : [URL]?
+    let screenshotUrls : [String]?
+    let ipadScreenshotUrls : [String]?
     let appletvScreenshotUrls : [String]?
-    let artworkUrl60 : URL?
-    let artworkUrl512 : URL?
-    let artworkUrl100 : URL?
-    let artistViewUrl : URL?
+    let artworkUrl60 : String?
+    let artworkUrl512 : String?
+    let artworkUrl100 : String?
+    let artistViewUrl : String?
     let supportedDevices : [String]?
     let features : [String]?
     let kind :String?
@@ -42,7 +42,7 @@ class SearchInfo: Codable {
     let averageUserRatingForCurrentVersion :Double?
     let userRatingCountForCurrentVersion :Int?
     let averageUserRating :Double?
-    let trackViewUrl :URL?
+    let trackViewUrl :String?
     let trackContentRating :String?
     let minimumOsVersion :String?
     let description :String?

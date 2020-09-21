@@ -11,23 +11,25 @@ import UIKit
 class ScreenShotCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
+    let cache = NSCache<NSString, UIImage>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+//        imgView.isUserInteractionEnabled = true
+        
         imgView.layer.cornerRadius = 30
         imgView.layer.masksToBounds = true
-        imgView.layer.borderColor = UIColor.white.cgColor
-        imgView.layer.borderWidth = 1
+        imgView.layer.borderColor = UIColor.lightGray.cgColor
+        imgView.layer.borderWidth = 0.5
     }
     
     static func cellSize() -> CGSize{
-        return CGSize(width: 392, height: 696)
+        return CGSize(width: 300, height: 600)
     }
     
-    func setViewDataObj(img:URL) {
-        print("img-->\(img)")
-        imgView.load(url: img)
+    func setViewDataObj(img:String) {
+        imgView.load(url: img,cache: self.cache)
     }
 
 }

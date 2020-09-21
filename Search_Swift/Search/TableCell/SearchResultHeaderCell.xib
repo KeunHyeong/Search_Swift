@@ -88,11 +88,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-9y-Gqg" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="50" y="27.5" width="50" height="15"/>
+                                <rect key="frame" x="50" y="27.5" width="100" height="15"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="FaR-aa-47E"/>
-                                    <constraint firstAttribute="width" constant="50" id="VXU-js-AeN"/>
+                                    <constraint firstAttribute="width" constant="100" id="VXU-js-AeN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="totalStars">

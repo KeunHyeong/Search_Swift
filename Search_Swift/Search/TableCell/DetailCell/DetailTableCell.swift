@@ -14,7 +14,7 @@ class DetailTableCell: UITableViewCell{
     @IBOutlet weak var deviceCheckLb: UILabel!
     
     var info:SearchInfo!
-    var imgList:[URL]!
+    var imgList:[String]!
 
     override func awakeFromNib() {
         super.awakeFromNib()

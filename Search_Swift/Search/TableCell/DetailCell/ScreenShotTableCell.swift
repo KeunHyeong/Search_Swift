@@ -14,17 +14,15 @@ class ScreenShotTableCell: UITableViewCell {
     @IBOutlet weak var screenShotLargeCell: UICollectionView!
     
     var info:SearchInfo!
-    var imgList:[URL]!
+    var imgList:[String]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
         
         screenShotLargeCell.delegate = self
         screenShotLargeCell.dataSource = self
@@ -43,7 +41,7 @@ class ScreenShotTableCell: UITableViewCell {
     }
     
     static func cellHeight()->CGFloat{
-        return 769
+        return 650
     }
 }
 
