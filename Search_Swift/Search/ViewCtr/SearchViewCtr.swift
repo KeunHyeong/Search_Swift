@@ -251,9 +251,7 @@ extension SearchViewCtr : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        func dismissKeyboard(){
-            searchBar.resignFirstResponder()
-        }
+        dismissKeyboard()
         
         guard let term = searchBar.text, term.isEmpty == false else {
             return
