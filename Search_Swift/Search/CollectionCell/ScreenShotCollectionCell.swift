@@ -27,7 +27,7 @@ class ScreenShotCollectionCell: UICollectionViewCell {
     }
     
     func setViewDataObj(img:String) {
-        imgView.load(url: img,cache: self.cache)
+        imgView.load(urlString: img)
     }
 
 }

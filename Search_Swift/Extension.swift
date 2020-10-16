@@ -7,26 +7,22 @@
 //
 
 import UIKit
+import Kingfisher
 
 class Extension {}
 
 extension UIImageView {
-    func load(url:String,cache:NSCache<NSString, UIImage>) {
-        if let image = cache.object(forKey: url as NSString) {
-            self.image = image
-        } else {
-            let imageURL = URL(string: url)
-            URLSession.shared.dataTask(with: imageURL!) { data, response, error in
-                guard let data = data else {
-                    return
-                }
-                print("image_byte : ", data)
-                let image = UIImage(data: data)!
-                cache.setObject(image, forKey: url as NSString)
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-            }.resume()
+
+    func load(urlString:String) {
+        let cache = ImageCache.default
+        cache.retrieveImage(forKey: urlString, options: nil) { (image, _) in
+            if let image = image {
+                self.image = image
+            } else {
+                let url = URL(string: urlString)
+                let resource = ImageResource(downloadURL: url!, cacheKey: urlString)
+                self.kf.setImage(with: resource)
+            }
         }
     }
 }

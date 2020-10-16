@@ -67,17 +67,18 @@ class SearchDetailCell: UITableViewCell {
         appTitleLb.text = info.title
         subTitleLb.text = info.primaryGenreName
         
-        appProfileImgView.load(url: info.artworkUrl60!,cache: self.cache)
+        appProfileImgView.load(urlString: info.artworkUrl60!)
+//        appProfileImgView.load(url: info.artworkUrl60!,cache: self.cache)
 
         if info.screenshotUrls?.count == 1{
-            screenShot_1.load(url: info.screenshotUrls![0],cache: self.cache)
+            screenShot_1.load(urlString: info.screenshotUrls![0])
         }else if info.screenshotUrls?.count == 2{
-            screenShot_1.load(url: info.screenshotUrls![0],cache: self.cache)
-            screenShot_1.load(url: info.screenshotUrls![1],cache: self.cache)
+            screenShot_1.load(urlString: info.screenshotUrls![0])
+            screenShot_1.load(urlString: info.screenshotUrls![1])
         }else{
-            screenShot_1.load(url: info.screenshotUrls![0],cache: self.cache)
-            screenShot_2.load(url: info.screenshotUrls![1],cache: self.cache)
-            screenShot_3.load(url: info.screenshotUrls![2],cache: self.cache)
+            screenShot_1.load(urlString: info.screenshotUrls![0])
+            screenShot_2.load(urlString: info.screenshotUrls![1])
+            screenShot_3.load(urlString: info.screenshotUrls![2])
         }
 
         starRatingView.rating = info.averageUserRating!

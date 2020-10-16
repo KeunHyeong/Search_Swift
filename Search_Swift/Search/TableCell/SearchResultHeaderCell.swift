@@ -63,7 +63,9 @@ class SearchResultHeaderCell: UITableViewCell {
     
     func setViewDataObj(info:SearchInfo) {
         
-        appProfileImgView.load(url: info.artworkUrl100!,cache: self.cache)
+        appProfileImgView.load(urlString:info.artworkUrl100!)
+//        appProfileImgView.setImage(with: info.artworkUrl100!)
+//        appProfileImgView.load(url: info.artworkUrl100!,cache: self.cache)
         appTitleLb.text = info.title
         appSubTitleLb.text = info.corpName
         

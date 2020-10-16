@@ -46,6 +46,8 @@ class SearchDetailVewCtr: UIViewController {
             vc?.info = self.info
         }
     }
+    @IBAction func tapBG(_ sender: Any) {
+    }
 }
 
 extension SearchDetailVewCtr : UIScrollViewDelegate{

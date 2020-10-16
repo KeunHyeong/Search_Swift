@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailCollectionCell: UICollectionViewCell {
 
@@ -28,6 +29,8 @@ class DetailCollectionCell: UICollectionViewCell {
     }
     
     func setViewDataObj(img:String) {
-        imgView.load(url: img,cache: cache)
+        imgView.load(urlString: img)
+//        imgView.load(url: img,cache: cache)
+        
     }
 }

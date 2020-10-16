@@ -21,6 +21,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pZX-pQ-Oc3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NNn-0P-jcv"/>
                             <constraint firstItem="pZX-pQ-Oc3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SHU-Se-3j2"/>
@@ -53,6 +54,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="j6Q-5O-ZkK" firstAttribute="top" secondItem="IDt-tJ-8aG" secondAttribute="top" id="MVt-CM-FY0"/>
                             <constraint firstItem="IDt-tJ-8aG" firstAttribute="bottom" secondItem="j6Q-5O-ZkK" secondAttribute="bottom" id="Uca-Qd-fVm"/>

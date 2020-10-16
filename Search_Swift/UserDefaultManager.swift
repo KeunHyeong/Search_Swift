@@ -22,8 +22,6 @@ class UserDefaultManager {
     }
     
     static func getRecentSearchTermList() -> [String]{
-        
-        
         let defaults = UserDefaults.standard
 //        resetDefaults()
         guard let array = defaults.array(forKey: "recentSearchTermList") as? [String] else { return [] }
