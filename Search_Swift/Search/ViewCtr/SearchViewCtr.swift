@@ -26,8 +26,6 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         setupViewCtr()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -210,10 +208,9 @@ extension SearchViewCtr : UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {}
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        if self.searchInfoData.isEmpty {
-            recentTableView.reloadData()
-            
-        }
+
+        self.searchInfoData.removeAll()
+        recentTableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
