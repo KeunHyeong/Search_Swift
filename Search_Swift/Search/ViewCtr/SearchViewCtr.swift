@@ -161,7 +161,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
                 
                 let term = self.searchInfoData[indexPath.row].title!
                 setRecentTerm(term: term)
-                
+                searchController.searchBar.resignFirstResponder()
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
                 searchType = DETAIL_TYPE
