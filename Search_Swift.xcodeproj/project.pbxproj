@@ -24,6 +24,8 @@
 		181386B82515BC4F007767F8 /* SearchRelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386B62515BC4F007767F8 /* SearchRelatedCell.xib */; };
 		181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181386BA2515CC20007767F8 /* SearchRecentCell.swift */; };
 		181386BD2515CC20007767F8 /* SearchRecentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181386BB2515CC20007767F8 /* SearchRecentCell.xib */; };
+		181901E4253DDC5C00B1BDC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181901E3253DDC5C00B1BDC9 /* GoogleService-Info.plist */; };
+		181901E6253EAE3000B1BDC9 /* SearchTermInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181901E5253EAE3000B1BDC9 /* SearchTermInfo.swift */; };
 		18198503251715260047459B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18198502251715260047459B /* Extension.swift */; };
 		1838D0C22517216E0075422A /* ProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D0C02517216E0075422A /* ProviderCell.swift */; };
 		1838D0C32517216E0075422A /* ProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838D0C12517216E0075422A /* ProviderCell.xib */; };
@@ -69,6 +71,8 @@
 		181386B62515BC4F007767F8 /* SearchRelatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRelatedCell.xib; sourceTree = "<group>"; };
 		181386BA2515CC20007767F8 /* SearchRecentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentCell.swift; sourceTree = "<group>"; };
 		181386BB2515CC20007767F8 /* SearchRecentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentCell.xib; sourceTree = "<group>"; };
+		181901E3253DDC5C00B1BDC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		181901E5253EAE3000B1BDC9 /* SearchTermInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTermInfo.swift; sourceTree = "<group>"; };
 		18198502251715260047459B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1838D0C02517216E0075422A /* ProviderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCell.swift; sourceTree = "<group>"; };
 		1838D0C12517216E0075422A /* ProviderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCell.xib; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				181386932515B3C1007767F8 /* Assets.xcassets */,
 				181386952515B3C1007767F8 /* LaunchScreen.storyboard */,
 				181386982515B3C1007767F8 /* Info.plist */,
+				181901E3253DDC5C00B1BDC9 /* GoogleService-Info.plist */,
 			);
 			path = Search_Swift;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				181386A62515BA5B007767F8 /* SearchInfo.swift */,
+				181901E5253EAE3000B1BDC9 /* SearchTermInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				181386942515B3C1007767F8 /* Assets.xcassets in Resources */,
 				18558B04251795FC00B3BD3D /* NewFunctionCell.xib in Resources */,
 				184846A025164B7900946FAA /* SearchResultHeaderCell.xib in Resources */,
+				181901E4253DDC5C00B1BDC9 /* GoogleService-Info.plist in Resources */,
 				181386B42515BC32007767F8 /* SearchDetailCell.xib in Resources */,
 				184846A62516542600946FAA /* ScreenShotViewCtr.storyboard in Resources */,
 				181386922515B3BE007767F8 /* Main.storyboard in Resources */,
@@ -391,6 +398,7 @@
 				1848469D25163EAC00946FAA /* DetailTableCell.swift in Sources */,
 				184846AD251654DA00946FAA /* ScreenShotCollectionCell.swift in Sources */,
 				181386A52515BA38007767F8 /* SearchAPI.swift in Sources */,
+				181901E6253EAE3000B1BDC9 /* SearchTermInfo.swift in Sources */,
 				181386BC2515CC20007767F8 /* SearchRecentCell.swift in Sources */,
 				18682F7D2516EF27009E135B /* DesDropTableCell.swift in Sources */,
 				1813868D2515B3BE007767F8 /* SceneDelegate.swift in Sources */,

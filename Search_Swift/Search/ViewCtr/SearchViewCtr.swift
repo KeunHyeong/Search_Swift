@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate{
     
@@ -18,9 +19,11 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     
     var searchController = UISearchController()
     var resultVC = UITableViewController()
-    var recentSearchTermList:[String] = []
+    var recentSearchTermList:[SearchTermInfo] = []
     var searchInfoData : [SearchInfo] = []
     var searchType = ""
+    let db = Database.database().reference().child("searchHistory")
+//    var searchTerms:[SearchTermInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadRecentList()
     }
     
     private func setupViewCtr(){
@@ -76,20 +80,42 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         resultVC.tableView.register(UINib(nibName: "SearchRelatedCell", bundle: nil), forCellReuseIdentifier: "RelatedCell")
         resultVC.tableView.register(UINib(nibName: "SearchDetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
         
-        loadRecentList()
+        
     }
     
-    private func loadRecentList(){
-        if !recentSearchTermList.isEmpty {
-            recentSearchTermList.removeAll()
+//    private func loadRecentList(){
+//        if !recentSearchTermList.isEmpty {
+//            recentSearchTermList.removeAll()
+//        }
+//        recentSearchTermList = UserDefaultManager.getRecentSearchTermList()
+//    }
+    
+//    private func setRecentTerm(info:SearchTermInfo){
+////        SearchTermInfo
+//        var filtered = SearchTermInfo
+//        filtered = movieList.filter({$0.term == $1.term})
+//        if filtered.count == 1 {
+//            //so,"Superman" movie contained in array..
+//        }
+//        recentSearchTermList.insert(info, at: 0)
+//        //            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
+//
+//
+//    }
+    
+    func insertRecentTerm(recentInfo: SearchTermInfo) {
+        var searchExsit: Bool = false
+        for info in self.recentSearchTermList {
+            if info.term == recentInfo.term{
+                searchExsit = true
+                break
+            }
         }
-        recentSearchTermList = UserDefaultManager.getRecentSearchTermList()
-    }
-    
-    private func setRecentTerm(term:String){
-        if !recentSearchTermList.contains(term) {
-            recentSearchTermList.insert(term, at: 0)
-            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
+        
+        if !searchExsit {
+            let timeStamp:Double = Date().timeIntervalSince1970.rounded()
+            self.db.childByAutoId().setValue(["term":recentInfo.term,"timeStamp":timeStamp])
+//            self.recentSearchTermList.insert(recentInfo, at: 0)
         }
     }
     
@@ -144,13 +170,17 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             }
             
             if self.searchInfoData.isEmpty {
-                let term = self.recentSearchTermList[indexPath.row]
-                SearchAPI.requestSearch(term) { searchInfos in
+                let info = self.recentSearchTermList[indexPath.row]
+                SearchAPI.requestSearch(info.term) { searchInfos in
                     DispatchQueue.main.async {
                         self.searchInfoData = searchInfos
                         tableView.reloadData()
+                        
+                       
                     }
                 }
+                
+             
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
             }
@@ -159,8 +189,8 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             if searchType == RELATED_TYPE{
                 searchType = DETAIL_TYPE
                 
-                let term = self.searchInfoData[indexPath.row].title!
-                setRecentTerm(term: term)
+                let info = SearchTermInfo(term:self.searchInfoData[indexPath.row].title!)
+                insertRecentTerm(recentInfo: info)
                 searchController.searchBar.resignFirstResponder()
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
@@ -200,6 +230,22 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
                 return SearchDetailCell.cellHeight()
             }
         }
+    }
+    
+    func loadRecentList(){
+        
+        db.observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            guard let searchHistory = snapshot.value as? [String:Any] else { return }
+            
+            let data = try! JSONSerialization.data(withJSONObject: Array(searchHistory.values), options: [])
+            
+            let decoder = JSONDecoder()
+            let searchTerms = try! decoder.decode([SearchTermInfo].self, from: data)
+            self.recentSearchTermList = searchTerms.sorted{ $0.timeStamp > $1.timeStamp }
+            self.recentTableView.reloadData()
+//            self.tableView.reloadData()
+        })
     }
 
 }
@@ -254,7 +300,8 @@ extension SearchViewCtr : UISearchBarDelegate {
             return
         }
         
-        setRecentTerm(term: term)
+        let info = SearchTermInfo(term:searchBar.text!)
+        insertRecentTerm(recentInfo: info)
         searchType = DETAIL_TYPE
         resultVC.tableView.reloadData()
     }
@@ -263,7 +310,7 @@ extension SearchViewCtr : UISearchBarDelegate {
         searchType = RECENT_TYPE
         loadRecentList()
         self.searchInfoData.removeAll()
-        recentTableView.reloadData()
+//        recentTableView.reloadData()
     }
 }
 

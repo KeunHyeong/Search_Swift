@@ -24,7 +24,7 @@ class SearchRecentCell: UITableViewCell {
         return 44
     }
     
-    func setViewDataObj(info:String){
-        recentLb.text = info
+    func setViewDataObj(info:SearchTermInfo){
+        recentLb.text = info.term
     }
 }
