@@ -61,8 +61,4 @@ class SearchAPI {
             return []
         }
     }
-    
-    static func requestRelatedTerm(term:String){
-        
-    }
 }

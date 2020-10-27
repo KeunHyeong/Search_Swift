@@ -7,6 +7,8 @@ target 'Search_Swift' do
     pod 'Kingfisher', '4.9.0'
     pod 'Firebase/Database'
     pod 'Firebase/Analytics'
+    pod 'RxSwift'
+    pod 'RxCocoa'
 end
 
 

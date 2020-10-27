@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import RxSwift
 
 class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate{
     
@@ -79,44 +80,6 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
         
         resultVC.tableView.register(UINib(nibName: "SearchRelatedCell", bundle: nil), forCellReuseIdentifier: "RelatedCell")
         resultVC.tableView.register(UINib(nibName: "SearchDetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
-        
-        
-    }
-    
-//    private func loadRecentList(){
-//        if !recentSearchTermList.isEmpty {
-//            recentSearchTermList.removeAll()
-//        }
-//        recentSearchTermList = UserDefaultManager.getRecentSearchTermList()
-//    }
-    
-//    private func setRecentTerm(info:SearchTermInfo){
-////        SearchTermInfo
-//        var filtered = SearchTermInfo
-//        filtered = movieList.filter({$0.term == $1.term})
-//        if filtered.count == 1 {
-//            //so,"Superman" movie contained in array..
-//        }
-//        recentSearchTermList.insert(info, at: 0)
-//        //            UserDefaultManager.setRecentSearchTermList(recentList: recentSearchTermList)
-//
-//
-//    }
-    
-    func insertRecentTerm(recentInfo: SearchTermInfo) {
-        var searchExsit: Bool = false
-        for info in self.recentSearchTermList {
-            if info.term == recentInfo.term{
-                searchExsit = true
-                break
-            }
-        }
-        
-        if !searchExsit {
-            let timeStamp:Double = Date().timeIntervalSince1970.rounded()
-            self.db.childByAutoId().setValue(["term":recentInfo.term,"timeStamp":timeStamp])
-//            self.recentSearchTermList.insert(recentInfo, at: 0)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -175,12 +138,8 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
                     DispatchQueue.main.async {
                         self.searchInfoData = searchInfos
                         tableView.reloadData()
-                        
-                       
                     }
                 }
-                
-             
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
             }
@@ -233,7 +192,6 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     }
     
     func loadRecentList(){
-        
         db.observeSingleEvent(of: .value, with: {(snapshot) in
             
             guard let searchHistory = snapshot.value as? [String:Any] else { return }
@@ -243,11 +201,27 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             let decoder = JSONDecoder()
             let searchTerms = try! decoder.decode([SearchTermInfo].self, from: data)
             self.recentSearchTermList = searchTerms.sorted{ $0.timeStamp > $1.timeStamp }
+            if self.recentSearchTermList.count == 20{
+                self.recentSearchTermList.remove(at: 19)
+            }
             self.recentTableView.reloadData()
-//            self.tableView.reloadData()
         })
     }
-
+    
+    func insertRecentTerm(recentInfo: SearchTermInfo) {
+        var searchExsit: Bool = false
+        for info in self.recentSearchTermList {
+            if info.term == recentInfo.term{
+                searchExsit = true
+                break
+            }
+        }
+        
+        if !searchExsit {
+            let timeStamp:Double = Date().timeIntervalSince1970.rounded()
+            self.db.childByAutoId().setValue(["term":recentInfo.term,"timeStamp":timeStamp])
+        }
+    }
 }
 
 extension SearchViewCtr : UISearchResultsUpdating{
@@ -310,7 +284,6 @@ extension SearchViewCtr : UISearchBarDelegate {
         searchType = RECENT_TYPE
         loadRecentList()
         self.searchInfoData.removeAll()
-//        recentTableView.reloadData()
     }
 }
 
