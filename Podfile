@@ -9,6 +9,7 @@ target 'Search_Swift' do
     pod 'Firebase/Analytics'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'Alamofire'
 end
 
 

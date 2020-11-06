@@ -31,6 +31,12 @@
 		1838D0C32517216E0075422A /* ProviderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838D0C12517216E0075422A /* ProviderCell.xib */; };
 		1838D0C8251721A50075422A /* DetailCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D0C6251721A50075422A /* DetailCommonCell.swift */; };
 		1838D0C9251721A50075422A /* DetailCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838D0C7251721A50075422A /* DetailCommonCell.xib */; };
+		183EE1392555475200A31289 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE1382555475200A31289 /* BaseInterceptor.swift */; };
+		183EE13B2555476800A31289 /* MyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE13A2555476800A31289 /* MyLogger.swift */; };
+		183EE13D2555477C00A31289 /* MySearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE13C2555477C00A31289 /* MySearchRouter.swift */; };
+		183EE140255547A200A31289 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE13F255547A200A31289 /* Constants.swift */; };
+		183EE1422555489100A31289 /* MyApiStatusLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE1412555489100A31289 /* MyApiStatusLogger.swift */; };
+		183EE1442555491A00A31289 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EE1432555491A00A31289 /* MyError.swift */; };
 		184846762515E5A000946FAA /* SearchDetailVewCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184846752515E5A000946FAA /* SearchDetailVewCtr.swift */; };
 		1848467F251601B300946FAA /* SearchResultHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848467D251601B300946FAA /* SearchResultHeaderCell.swift */; };
 		1848469925163E8200946FAA /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848469725163E8200946FAA /* DetailCollectionCell.swift */; };
@@ -78,6 +84,12 @@
 		1838D0C12517216E0075422A /* ProviderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCell.xib; sourceTree = "<group>"; };
 		1838D0C6251721A50075422A /* DetailCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommonCell.swift; sourceTree = "<group>"; };
 		1838D0C7251721A50075422A /* DetailCommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCommonCell.xib; sourceTree = "<group>"; };
+		183EE1382555475200A31289 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		183EE13A2555476800A31289 /* MyLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLogger.swift; sourceTree = "<group>"; };
+		183EE13C2555477C00A31289 /* MySearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySearchRouter.swift; sourceTree = "<group>"; };
+		183EE13F255547A200A31289 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		183EE1412555489100A31289 /* MyApiStatusLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApiStatusLogger.swift; sourceTree = "<group>"; };
+		183EE1432555491A00A31289 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		184846752515E5A000946FAA /* SearchDetailVewCtr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailVewCtr.swift; sourceTree = "<group>"; };
 		1848467D251601B300946FAA /* SearchResultHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderCell.swift; sourceTree = "<group>"; };
 		1848469725163E8200946FAA /* DetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
@@ -133,6 +145,7 @@
 		181386892515B3BE007767F8 /* Search_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				183EE13E2555479500A31289 /* Utils */,
 				181386AA2515BAA3007767F8 /* UserDefaultManager.swift */,
 				18198502251715260047459B /* Extension.swift */,
 				181386A22515BA09007767F8 /* Model */,
@@ -155,6 +168,10 @@
 			children = (
 				181386A42515BA38007767F8 /* SearchAPI.swift */,
 				181386A82515BA83007767F8 /* APIResponse.swift */,
+				183EE1382555475200A31289 /* BaseInterceptor.swift */,
+				183EE13A2555476800A31289 /* MyLogger.swift */,
+				183EE13C2555477C00A31289 /* MySearchRouter.swift */,
+				183EE1412555489100A31289 /* MyApiStatusLogger.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -222,6 +239,15 @@
 				18558B02251795FC00B3BD3D /* NewFunctionCell.xib */,
 			);
 			path = DetailCell;
+			sourceTree = "<group>";
+		};
+		183EE13E2555479500A31289 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				183EE13F255547A200A31289 /* Constants.swift */,
+				183EE1432555491A00A31289 /* MyError.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		18682F7A2516E9CE009E135B /* CollectionCell */ = {
@@ -382,18 +408,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				18558B03251795FC00B3BD3D /* NewFunctionCell.swift in Sources */,
+				183EE1422555489100A31289 /* MyApiStatusLogger.swift in Sources */,
 				181386AF2515BB3F007767F8 /* SearchViewCtr.swift in Sources */,
 				181386AB2515BAA3007767F8 /* UserDefaultManager.swift in Sources */,
 				1813868F2515B3BE007767F8 /* ViewController.swift in Sources */,
 				1838D0C8251721A50075422A /* DetailCommonCell.swift in Sources */,
+				183EE13B2555476800A31289 /* MyLogger.swift in Sources */,
 				184846762515E5A000946FAA /* SearchDetailVewCtr.swift in Sources */,
 				1838D0C22517216E0075422A /* ProviderCell.swift in Sources */,
 				184846A2251653E800946FAA /* ScreenShotViewCtr.swift in Sources */,
 				184846A9251654B800946FAA /* ScreenShotTableCell.swift in Sources */,
+				183EE13D2555477C00A31289 /* MySearchRouter.swift in Sources */,
+				183EE140255547A200A31289 /* Constants.swift in Sources */,
 				181386B32515BC32007767F8 /* SearchDetailCell.swift in Sources */,
 				1813868B2515B3BE007767F8 /* AppDelegate.swift in Sources */,
+				183EE1392555475200A31289 /* BaseInterceptor.swift in Sources */,
 				181386B72515BC4F007767F8 /* SearchRelatedCell.swift in Sources */,
 				18198503251715260047459B /* Extension.swift in Sources */,
+				183EE1442555491A00A31289 /* MyError.swift in Sources */,
 				181386A72515BA5B007767F8 /* SearchInfo.swift in Sources */,
 				1848469D25163EAC00946FAA /* DetailTableCell.swift in Sources */,
 				184846AD251654DA00946FAA /* ScreenShotCollectionCell.swift in Sources */,

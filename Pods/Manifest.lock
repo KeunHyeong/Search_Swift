@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.3.0)
   - Cosmos (23.0.0)
   - Firebase/Analytics (7.0.0):
     - Firebase/Core
@@ -79,6 +80,7 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Cosmos (~> 23.0)
   - Firebase/Analytics
   - Firebase/Database
@@ -88,6 +90,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Cosmos
     - Firebase
     - FirebaseAnalytics
@@ -107,6 +110,7 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Firebase: 50be68416f50eb4eb2ecb0e78acab9a051ef95df
   FirebaseAnalytics: c1166b7990bae464c6436132510bb718c6680f80
@@ -125,6 +129,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: c1fc0299f6b178f8bc71ff58e4c7f2a2d4ef30ea
+PODFILE CHECKSUM: 5efbc5afe8097ef1556982e78faa5df637f13846
 
 COCOAPODS: 1.9.3

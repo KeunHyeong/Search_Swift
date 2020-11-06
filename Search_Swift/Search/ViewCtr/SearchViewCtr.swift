@@ -24,7 +24,7 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
     var searchInfoData : [SearchInfo] = []
     var searchType = ""
     let db = Database.database().reference().child("searchHistory")
-//    var searchTerms:[SearchTermInfo] = []
+    //    var searchTerms:[SearchTermInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,12 +134,21 @@ class SearchViewCtr: UIViewController,UITableViewDelegate, UITableViewDataSource
             
             if self.searchInfoData.isEmpty {
                 let info = self.recentSearchTermList[indexPath.row]
-                SearchAPI.requestSearch(info.term) { searchInfos in
-                    DispatchQueue.main.async {
-                        self.searchInfoData = searchInfos
-                        tableView.reloadData()
-                    }
-                }
+                SearchAPI
+                    .shared
+                    .requestSearch(searchTerm: info.term,
+                               completion: { result in
+                                self.searchInfoData = result
+                                tableView.reloadData()
+                                
+            
+                    })
+                //                SearchAPI.requestSearch(info.term) { searchInfos in
+                //                    DispatchQueue.main.async {
+                //                        self.searchInfoData = searchInfos
+                //                        tableView.reloadData()
+                //                    }
+                //                }
             }else{
                 performSegue(withIdentifier: "ResultVC", sender: indexPath.row)
             }
@@ -228,7 +237,7 @@ extension SearchViewCtr : UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {}
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-
+        
         self.searchInfoData.removeAll()
         recentTableView.reloadData()
     }
@@ -248,15 +257,33 @@ extension SearchViewCtr : UISearchResultsUpdating{
         
         searchType = RELATED_TYPE
         
-        SearchAPI.requestSearch(term) { searchInfos in
-            DispatchQueue.main.async {
-                if !self.searchInfoData.isEmpty{
-                    self.searchInfoData.removeAll()
-                }
-                self.searchInfoData = searchInfos
-                self.resultVC.tableView.reloadData()
-            }
-        }
+//        SearchAPI.requestSearch(term) { searchInfos in
+//            DispatchQueue.main.async {
+//                if !self.searchInfoData.isEmpty{
+//                    self.searchInfoData.removeAll()
+//                }
+//                self.searchInfoData = searchInfos
+//                self.resultVC.tableView.reloadData()
+//            }
+//        }
+        SearchAPI
+            .shared
+            .requestSearch(searchTerm: term,
+                       completion: { result in
+                        DispatchQueue.main.async {
+                            self.searchInfoData = result
+                            self.resultVC.tableView.reloadData()
+
+                        }
+                        
+
+            })
+        //                SearchAPI.requestSearch(info.term) { searchInfos in
+        //                    DispatchQueue.main.async {
+        //                        self.searchInfoData = searchInfos
+        //                        tableView.reloadData()
+        //                    }
+        //                }
     }
 }
 
